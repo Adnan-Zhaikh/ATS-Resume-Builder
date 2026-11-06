@@ -1,0 +1,40 @@
+:root { --cotton:#EDEBDD; --cherry:#810100; --maroon:#630000; --noir:#1B1717; }
+* { box-sizing: border-box; margin: 0; }
+body { background: var(--maroon); color: var(--cotton); font-family: var(--font-body), sans-serif; }
+main { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 24px; padding: 24px; max-width: 1400px; margin: auto; }
+@media (max-width: 900px) { main { grid-template-columns: 1fr; padding: 14px; } }
+
+.hero h1 { font-family: var(--font-display); font-size: clamp(40px,7vw,72px); letter-spacing: .04em; line-height: 1; }
+.hero p { margin: 12px 0 20px; opacity: .85; letter-spacing: .04em; }
+
+.card { background: var(--cotton); color: var(--noir); padding: 20px; margin-bottom: 14px; border-radius: 2px; }
+.card h2 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: .12em; font-size: 20px; color: var(--cherry); margin-bottom: 14px; border-bottom: 1px solid var(--noir); padding-bottom: 8px; }
+.row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.field { display: block; margin-bottom: 10px; }
+.field span { display: block; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 4px; }
+.field input, .field textarea { width: 100%; padding: 9px; font: inherit; background: #f7f6ef; color: var(--noir); border: 1px solid var(--noir); border-radius: 0; }
+.field input:focus, .field textarea:focus { outline: 2px solid var(--cherry); }
+.item { border-bottom: 1px dashed var(--noir); margin-bottom: 12px; }
+
+button { font-family: var(--font-display); letter-spacing: .14em; text-transform: uppercase; cursor: pointer; border-radius: 0; }
+.ghost { background: transparent; border: 1px solid var(--cherry); color: var(--cherry); padding: 8px 12px; margin: 0 8px 8px 0; font-size: 12px; }
+.primary { width: 100%; background: var(--cherry); color: var(--cotton); border: 1px solid var(--cotton); padding: 16px; font-size: 16px; }
+.primary:hover { background: var(--noir); }
+
+.preview { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow: auto; }
+.paper { background: #fff; color: #000; font-family: Arial, Helvetica, sans-serif; font-size: 11pt; line-height: 1.4; padding: 36px 40px; min-height: 600px; }
+.paper h1 { font-size: 22pt; text-align: center; }
+.paper .role, .paper .contact { text-align: center; font-size: 10.5pt; }
+.paper h2 { font-size: 11pt; text-transform: uppercase; border-bottom: 1px solid #000; margin: 14px 0 6px; padding-bottom: 2px; }
+.paper .entry { margin-bottom: 8px; }
+.paper .dates { font-style: italic; font-size: 10pt; }
+.paper ul { margin: 3px 0 0 18px; }
+
+@media print {
+  body { background: #fff; }
+  .no-print { display: none !important; }
+  main { display: block; padding: 0; }
+  .preview { position: static; max-height: none; overflow: visible; }
+  .paper { padding: 0; }
+  @page { margin: 16mm; }
+}
